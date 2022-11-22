@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@font-face { font-family:"Arial";font-variant:normal;font-weight:bold;src:url("#FontID0") format(svg)}
+.str3 {stroke:#116099;stroke-width:39.37;stroke-miterlimit:22.9256}
+.str2 {stroke:#2B2A29;stroke-width:7.87;stroke-miterlimit:22.9256}
+.str0 {stroke:#6E6154;stroke-width:3.94;stroke-miterlimit:22.9256}
+.str1 {stroke:#4A4949;stroke-width:3;stroke-miterlimit:22.9256}
+.fil2 {fill:none}
+.fil3 {fill:#1FA2FF}
+.fil0 {fill:#1FA2FF}
+.fil1 {fill:#E0BC67}
+.fil4 {fill:url(#id0)}
+.fnt0 {font-weight:bold;font-size:666.67px;font-family:'Arial'}

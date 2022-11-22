@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- U changed this main class -->
+<main class="layout layout--2">
+  <div class="container">
+    <!-- Change class-->
+    <div style="display: inline-block;">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <select name="start_date">
+          <option disabled="True" selected> --Start date-- </option>
+          {% for data in data_dropdown %}
+          <option value="{{data}}">{{data}}</option>
+          {% endfor %} 
+        </select>
+        <select name="end_date">
+          <option disabled="True" selected> --End date-- </option>
+          {% for data in data_dropdown %}
+          <option value="{{data}}">{{data}}</option>
+          {% endfor %} 
+        </select>
+        <button class="btn btn--main" type="submit">Submit</button>  
+      </form>
+      <br>
+      <!-- Graph -->
+      <form action="" method="GET" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="data:image/png;base64, {{chart|safe}}">
+      </form>
+      <!-- <div>
+        Back button fix location on page
+        <a class  href="{{request.META.HTTP_REFERER}}">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <title>arrow-left</title>
+            <path
+              d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+            ></path>
+          </svg>
+        </a>
+      </div> -->
+      
+      <!-- Download button move it left -->
+      <div style="float: left;">
+        <a href="{{ data.dir.url }}" download  class="btn btn--main" style="float: left;">Download</a>
+      </div>
+     
+      <!-- <a href="{{ data.dir.url }}" download  class="btn btn--main" style="float: left;">Download</a> -->
+      
+    </div>
+   
+        
+    
+    
+      <!-- For graph -->
+    
+    <!-- Stavljeno je room__details zbog css-a treba da primenujes u data_details ili page details -->
+    <div style="
+    height: 800px;
+    overflow:scroll;">
+      <!-- Data from csv file -->
+      {{data_frame|safe}}
+    </div>
+  </div>
+</main>
+{% endblock content %}
+  
