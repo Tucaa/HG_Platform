@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main class="create-room layout">
+  <div class="container">
+    <div class="layout__box">
+      <div class="layout__boxHeader">
+        <div class="layout__boxTitle">
+          <a href="{% url 'location' location.id %}">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>arrow-left</title>
+              <path
+                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+              </path>
+            </svg>
+          </a>
+          <h3>Upload file</h3>
+        </div>
+      </div>
+      <div class="layout__body">
+        <form class="form" action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <!-- Name of the file -->
+          <div class="form__group">
+            <label for="room_name">Enter name</label>
+            {{form.name}}
+              </select>
+            </datalist>
+          </div>
+
+          <!-- Upload file -->
+          <div class="form__group">
+            <label for="room_dir">Upload file</label>
+            {{form.dir}}
+          </div>
+          
+          <!-- Description -->
+          <div class="form__group">
+            <label for="room_description">Enter description</label>
+            {{form.description}}  
+          </div>
+
+          <div class="form__action">
+            <a class="btn btn--dark" href="{% url 'location' location.id %}">Cancel</a>
+            <button class="btn btn--main" type="submit">Upload</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
